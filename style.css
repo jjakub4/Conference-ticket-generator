@@ -69,6 +69,7 @@ header p {
   cursor: pointer;
   background-color: hsla(245, 19%, 35%, 0.6);
   margin-bottom: 10px;
+  backdrop-filter: blur(2px);
 }
 
 #drop-zone img {
@@ -104,6 +105,7 @@ header p {
 
 .upload-info img {
   height: 16px;
+  width: auto;
 }
 
 #file-input {

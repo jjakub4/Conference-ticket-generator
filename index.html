@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Form starts -->
+
+    <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+
+    <p>Secure your spot at next year's biggest coding conference.</p>
+
+    <h3>Upload Avatar</h3>
+    <label id="drop-zone">
+      <!--Icon here-->
+      Drag and drop or click to upload
+      <input type="file" id="file-input" multiple accept="image/*" />
+    </label>
+
+    <button id="remove-btn">Remove Image</button>
+    <button id="change-btn">Change Image</button>
+
+    <h3>Full Name</h3>
+    <input type="text" id="name-input" />
+
+    <h3>Email Address</h3>
+    <input type="email" id="email-address" />
+
+    <h3>GitHub Username</h3>
+    <input type="text" id="github-username" />
+
+    <!-- Form ends -->
+
+    <!-- Generated tickets starts -->
+    <h1>
+      Congrats, <span id="congrats-name">placeholder</span>! Your ticket is
+      ready.
+    </h1>
+    <p>
+      We've emailed your ticket to
+      <span id="congrats-email">idkidkidk</span> and will send updates in the
+      run up to the event.
+    </p>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <h2>Coding Conf</h2>
+        <p>Jan 31, 2025 / Austin, TX</p>
+      </div>
+
+      <div class="ticket-bottom">
+        <h4>Jonatan Kristof</h4>
+        <!--icon here -->
+        <p>@jonatankristof0101</p>
+      </div>
+      <h5 id="ticket-id">#0101010</h5>
+    </div>
+
+    <!-- Generated tickets ends -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </body>
+</html>

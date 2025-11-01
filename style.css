@@ -19,15 +19,19 @@
 
 body {
   background-image: url(./assets/images/background-mobile.png);
-  background-repeat: no-repeat;
-  width: auto;
-  height: auto;
   font-family: "Inconsolata", monospace;
   color: var(--Neutral0);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 15px;
+}
+
+.pattern-lines {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  width: auto;
 }
 
 header h1 {
@@ -37,7 +41,7 @@ header h1 {
 }
 
 header p {
-  color: var(--Neutral500);
+  color: var(--Neutral300);
   font-weight: 400;
   text-align: center;
   padding-top: 15px;
@@ -50,6 +54,67 @@ header p {
   padding-bottom: 40px;
   width: 70%;
   height: auto;
+}
+
+#drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 120px;
+  padding: 1.5em;
+  border: 1px dashed var(--Neutral500);
+  border-radius: 10px;
+  color: hsla(252, 6%, 83%, 0.6);
+  cursor: pointer;
+  background-color: hsla(245, 19%, 35%, 0.6);
+  margin-bottom: 10px;
+}
+
+#drop-zone img {
+  background-color: hsla(243, 10%, 36%, 0.65);
+  border-radius: 7px;
+  padding: 3px;
+  height: 40px;
+  width: auto;
+  margin-bottom: 20px;
+  border: 2px solid hsla(243, 10%, 39%, 0.65);
+  opacity: 90%;
+}
+
+.upload-image p {
+  color: var(--Neutral500);
+  font-weight: 400;
+  text-align: left;
+  font-size: 11px;
+  margin-bottom: 30px;
+  margin-left: 5px;
+}
+
+.upload-image h3 {
+  color: var(--Neutral0);
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.upload-info {
+  display: flex;
+}
+
+.upload-info img {
+  height: 16px;
+}
+
+#file-input {
+  display: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#remove-btn,
+#change-btn {
+  display: none;
 }
 
 @media (min-width: 600px) {

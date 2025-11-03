@@ -119,6 +119,53 @@ header p {
   display: none;
 }
 
+form {
+  width: 100%;
+}
+
+form h3 {
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+form input {
+  border-radius: 10px;
+  color: hsla(252, 6%, 83%, 0.6);
+  cursor: pointer;
+  background-color: hsla(245, 19%, 35%, 0.6);
+  margin-bottom: 10px;
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--Neutral500);
+  padding: 1em;
+  padding-right: 10em;
+  width: 100%;
+}
+
+#generate-btn {
+  background: linear-gradient(hsl(7, 88%, 67%), hsl(7, 71%, 60%));
+  padding: 0.6em;
+  width: 100%;
+  margin-top: 30px;
+  border: none;
+  border-radius: 10px;
+  color: rgb(38, 0, 38);
+  font-family: "Inconsolata", monospace;
+  font-weight: 900;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+form input:focus,
+#drop-zone:hover {
+  outline: none;
+  background-color: hsla(246, 16%, 50%, 0.6);
+  transition: ease-in-out 0.2s;
+}
+
+.generated-ticket {
+  display: none;
+}
 @media (min-width: 600px) {
   body {
     background-image: url(./assets/images/background-tablet.png);

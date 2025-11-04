@@ -27,6 +27,7 @@
 }
 
 body {
+  overflow-x: hidden;
   background-image: url(./assets/images/background-mobile.png);
   background-size: cover;
   background-position: center;
@@ -39,13 +40,28 @@ body {
   padding: 15px;
 }
 
-.pattern-lines {
-  z-index: -1;
+.pattern-lines,
+.circle-pattern {
   position: absolute;
+}
+.pattern-lines {
   top: 0;
+  left: 0;
   width: 100%;
 }
-
+.circle-pattern {
+  left: -10%;
+  top: -5%;
+  width: 40%;
+  z-index: -10;
+}
+.squiggly {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 header h1 {
   font-weight: 900;
   text-align: center;
@@ -158,10 +174,10 @@ form input {
   background: linear-gradient(hsl(7, 88%, 67%), hsl(7, 71%, 60%));
   padding: 0.6em;
   width: 100%;
-  margin-top: 30px;
+  margin-top: 15px;
   border: none;
   border-radius: 10px;
-  color: rgb(38, 0, 38);
+  color: rgb(62, 0, 62);
   font-family: "Inconsolata", monospace;
   font-weight: 900;
   text-align: center;
@@ -176,6 +192,45 @@ form input:focus,
   transition: ease-in-out 0.2s;
 }
 
+.squiggly {
+  position: absolute;
+  width: 75%;
+  bottom: -25.9%;
+  z-index: -1;
+  left: 0;
+}
+
+#name-error,
+#github-error,
+#email-error {
+  color: red;
+  font-weight: 400;
+  text-align: left;
+  font-size: 13px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#name-error-span,
+#github-error-span,
+#email-error-span {
+  display: flex;
+  width: auto;
+  height: auto;
+  align-items: center;
+  display: none;
+}
+
+#name-error-span img,
+#github-error-span img,
+#email-error-span img {
+  height: 16px;
+  width: auto;
+  margin-bottom: 10px;
+  filter: invert(28%) sepia(76%) saturate(6916%) hue-rotate(353deg)
+    brightness(101%) contrast(128%);
+}
+
 .generated-ticket {
   display: none;
 }
@@ -186,6 +241,21 @@ form input:focus,
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  .pattern-lines,
+  .circle-pattern {
+    max-width: none; /* Allow pattern images to stretch fully */
+    top: 0;
+    left: 0;
+  }
+
+  .pattern-lines {
+    width: 150%; /* Make the pattern even wider on larger screens */
+  }
+
+  .circle-pattern {
+    width: 150%;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -194,5 +264,15 @@ form input:focus,
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .pattern-lines {
+    width: 200%; /* Even wider pattern lines on desktop */
+    left: -50%; /* Offset to keep it centered */
+  }
+
+  .circle-pattern {
+    width: 200%;
+    left: -40%;
   }
 }

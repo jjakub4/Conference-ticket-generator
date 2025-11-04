@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -24,10 +23,15 @@
       class="logo"
     />
 
+    <!--pattern images-->
     <img
-      class="pattern-lines"
+      class="pattern-lines patterns"
       src="./assets/images/pattern-lines.svg"
-      alt="vertical lines"
+    />
+
+    <img
+      src="./assets/images/pattern-circle.svg"
+      class="circle-pattern patterns"
     />
 
     <header>
@@ -45,7 +49,7 @@
           <input type="file" id="file-input" multiple accept="image/*" />
         </label>
         <span class="upload-info">
-          <img src="./assets/images/icon-info.svg" alt="info icon" />
+          <img src="./assets/images/icon-info.svg" />
           <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
         </span>
       </div>
@@ -55,15 +59,26 @@
 
       <h3>Full Name</h3>
       <input type="text" id="name-input" />
+      <span id="name-error-span">
+        <img src="./assets/images/icon-info.svg" />
+        <p id="name-error">Please enter your name</p>
+      </span>
 
       <h3>Email Address</h3>
-      <input type="email" id="email-address" placeholder="example@gmail.com" />
+      <input type="email" id="email-input" placeholder="example@gmail.com" />
+      <span id="email-error-span">
+        <img src="./assets/images/icon-info.svg" />
+        <p id="email-error">Please enter a valid email address</p>
+      </span>
 
       <h3>GitHub Username</h3>
-      <input type="text" id="github-username" placeholder="@yourusername" />
-
-      <button id="generate-btn">Generate My Ticket</button>
+      <input type="text" id="github-input" placeholder="@yourusername" />
+      <span id="github-error-span">
+        <img src="./assets/images/icon-info.svg" />
+        <p id="github-error">Please enter your valid github username</p>
+      </span>
     </form>
+    <button id="generate-btn">Generate My Ticket</button>
 
     <!-- Form ends -->
 
@@ -101,5 +116,11 @@
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
       Coded by <a href="#">Your Name Here</a>.
     </div>
+
+    <img
+      class="squiggly"
+      src="./assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"
+    />
+    <script src="script.js"></script>
   </body>
 </html>

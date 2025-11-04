@@ -8,6 +8,42 @@ const githubErr = document.getElementById("github-error-span");
 
 const checkBtn = document.getElementById("generate-btn");
 
+const dropZone = document.getElementById("drop-zone");
+
+dropZone.addEventListener("drop", dropHandler);
+
+window.addEventListener("drop", (e) => {
+  if ([...e.dataTransfer.items].some((item) => item.kind === "file")) {
+    e.preventDefault();
+  }
+});
+
+dropZone.addEventListener("dragover", (e) => {
+  const fileItems = [...e.dataTransfer.items].filter(
+    (item) => item.kind === "file"
+  );
+  if (fileItems.length > 0) {
+    e.preventDefault();
+    if (fileItems.some((item) => item.type.startsWith("image/"))) {
+      e.dataTransfer.dropEffect = "copy";
+    } else {
+      e.dataTransfer.dropEffect = "none";
+    }
+  }
+});
+
+window.addEventListener("dragover", (e) => {
+  const fileItems = [...e.dataTransfer.items].filter(
+    (item) => item.kind === "file"
+  );
+  if (fileItems.length > 0) {
+    e.preventDefault();
+    if (!dropZone.contains(e.target)) {
+      e.dataTransfer.dropEffect = "none";
+    }
+  }
+});
+
 checkBtn.addEventListener("click", () => {
   const fullName = fullNameInput.value.trim();
   if (fullName === "") {
@@ -21,10 +57,8 @@ checkBtn.addEventListener("click", () => {
   }
 
   const githubUsername = githubInput.value.trim();
-  const githubRegex = /^[a-zA-Z0-9-]{1,39}$/;
+  const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
   if (!githubRegex.test(githubUsername)) {
     githubErr.style.display = "flex";
   }
-
-  console.log("All inputs are valid!");
 });

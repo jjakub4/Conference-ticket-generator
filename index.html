@@ -34,7 +34,7 @@
       class="circle-pattern patterns"
     />
 
-    <header>
+    <header id="form-header">
       <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
 
       <p>Secure your spot at next year's biggest coding conference.</p>
@@ -77,22 +77,27 @@
         <img src="./assets/images/icon-info.svg" />
         <p id="github-error">Please enter your valid github username</p>
       </span>
+      <button id="generate-btn" type="button">Generate My Ticket</button>
     </form>
-    <button id="generate-btn">Generate My Ticket</button>
 
     <!-- Form ends -->
 
     <!-- Generated tickets starts -->
     <div class="generated-ticket" id="generated-ticket">
-      <h1>
-        Congrats, <span id="congrats-name">placeholder</span>! Your ticket is
-        ready.
-      </h1>
-      <p>
-        We've emailed your ticket to
-        <span id="congrats-email">idkidkidk</span> and will send updates in the
-        run up to the event.
+      <div class="generated-ticket-header">
+
+        <h1>
+          Congrats, <span id="congrats-name">placeholder</span>! Your ticket is
+          ready.
+        </h1>
+        <p>
+
+          We've emailed your ticket to
+          <span id="congrats-email">idkidkidk</span> and will send updates in the
+          run up to the event.
+        </p>
       </p>
+    </div>
 
       <div class="ticket">
         <div class="ticket-top">
@@ -103,7 +108,7 @@
         <div class="ticket-bottom">
           <h4>Jonatan Kristof</h4>
           <!--icon here -->
-          <p>@jonatankristof0101</p>
+          <p id="congrats-github">@placeholder</p>
         </div>
         <h5 id="ticket-id">#0101010</h5>
       </div>

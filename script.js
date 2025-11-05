@@ -10,6 +10,10 @@ const checkBtn = document.getElementById("generate-btn");
 
 const dropZone = document.getElementById("drop-zone");
 
+let congratsName = document.getElementById("congrats-name");
+let congratsEmail = document.getElementById("congrats-email");
+let congratsGithub = document.getElementById("congrats-github");
+
 /*
 dropZone.addEventListener("drop", dropHandler);
 
@@ -76,5 +80,10 @@ checkBtn.addEventListener("click", () => {
   } else {
     document.getElementById("coding-form").style.display = "none";
     document.getElementById("generated-ticket").style.display = "flex";
+    document.getElementById("form-header").style.display = "none";
+
+    congratsName.innerText = fullName;
+    congratsEmail.innerText = email;
+    congratsGithub.innerText = githubUsername;
   }
 });

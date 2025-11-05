@@ -233,7 +233,38 @@ form input:focus,
 
 .generated-ticket {
   display: none;
+  flex-direction: column;
 }
+
+.generated-ticket h1 {
+  font-weight: 900;
+  text-align: center;
+  font-size: 28px;
+}
+
+#congrats-name {
+  background-image: linear-gradient(
+    to right,
+    hsl(7, 88%, 67%),
+    hsl(0, 0%, 100%)
+  );
+  color: transparent;
+  background-clip: text;
+}
+
+#congrats-email {
+  color: var(--Orange500);
+}
+
+.generated-ticket-header p {
+  color: var(--Neutral300);
+  font-weight: 400;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 35px;
+  font-size: 20px;
+}
+
 @media (min-width: 600px) {
   body {
     background-image: url(./assets/images/background-tablet.png);

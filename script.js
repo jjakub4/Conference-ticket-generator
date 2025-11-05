@@ -10,6 +10,7 @@ const checkBtn = document.getElementById("generate-btn");
 
 const dropZone = document.getElementById("drop-zone");
 
+/*
 dropZone.addEventListener("drop", dropHandler);
 
 window.addEventListener("drop", (e) => {
@@ -43,10 +44,14 @@ window.addEventListener("dragover", (e) => {
     }
   }
 });
+ 
+  Temporarily TODO ^ 
+  
+  */
 
 checkBtn.addEventListener("click", () => {
   const fullName = fullNameInput.value.trim();
-  if (fullName === "") {
+  if (fullName === "" || fullName.length < 3) {
     fullNameErr.style.display = "flex";
   }
 
@@ -60,5 +65,16 @@ checkBtn.addEventListener("click", () => {
   const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
   if (!githubRegex.test(githubUsername)) {
     githubErr.style.display = "flex";
+  }
+
+  if (
+    fullNameErr.style.display === "flex" ||
+    emailErr.style.display === "flex" ||
+    githubErr.style.display === "flex"
+  ) {
+    return;
+  } else {
+    document.getElementById("coding-form").style.display = "none";
+    document.getElementById("generated-ticket").style.display = "flex";
   }
 });

@@ -14,6 +14,8 @@ let congratsName = document.getElementById("congrats-name");
 let congratsEmail = document.getElementById("congrats-email");
 let congratsGithub = document.getElementById("congrats-github");
 
+let ticketID = document.getElementById("ticket-id");
+
 /*
 dropZone.addEventListener("drop", dropHandler);
 
@@ -85,5 +87,7 @@ checkBtn.addEventListener("click", () => {
     congratsName.innerText = fullName;
     congratsEmail.innerText = email;
     congratsGithub.innerText = githubUsername;
+
+    ticketID.innerText = "#" + Math.floor(Math.random() * 99999);
   }
 });

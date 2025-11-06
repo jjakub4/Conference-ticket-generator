@@ -1,3 +1,6 @@
+// Get elements
+const form = document.getElementById("coding-form");
+
 const fullNameInput = document.getElementById("name-input");
 const emailInput = document.getElementById("email-input");
 const githubInput = document.getElementById("github-input");
@@ -9,6 +12,12 @@ const githubErr = document.getElementById("github-error-span");
 const checkBtn = document.getElementById("generate-btn");
 
 const dropZone = document.getElementById("drop-zone");
+const fileInput = document.getElementById("file-input");
+const preview = document.getElementById("preview");
+const uploadText = document.getElementById("upload-text");
+const cloudIcon = document.getElementById("cloud-icon");
+const changeBtn = document.getElementById("change-btn");
+const removeBtn = document.getElementById("remove-btn");
 
 let congratsName = document.getElementById("congrats-name");
 let congratsEmail = document.getElementById("congrats-email");
@@ -16,44 +25,62 @@ let congratsGithub = document.getElementById("congrats-github");
 
 let ticketID = document.getElementById("ticket-id");
 
-/*
-dropZone.addEventListener("drop", dropHandler);
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
 
-window.addEventListener("drop", (e) => {
-  if ([...e.dataTransfer.items].some((item) => item.kind === "file")) {
-    e.preventDefault();
+dropZone.addEventListener("dragover", (event) => {
+  event.preventDefault();
+  dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.8)";
+});
+
+dropZone.addEventListener("dragleave", () => {
+  dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.6)";
+});
+
+dropZone.addEventListener("drop", (event) => {
+  event.preventDefault();
+  const file = event.dataTransfer.files[0];
+
+  if (file && file.type.startsWith("image")) {
+    handleImageUpload(file);
   }
 });
 
-dropZone.addEventListener("dragover", (e) => {
-  const fileItems = [...e.dataTransfer.items].filter(
-    (item) => item.kind === "file"
-  );
-  if (fileItems.length > 0) {
-    e.preventDefault();
-    if (fileItems.some((item) => item.type.startsWith("image/"))) {
-      e.dataTransfer.dropEffect = "copy";
-    } else {
-      e.dataTransfer.dropEffect = "none";
-    }
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file && file.type.startsWith("image")) {
+    handleImageUpload(file);
   }
 });
 
-window.addEventListener("dragover", (e) => {
-  const fileItems = [...e.dataTransfer.items].filter(
-    (item) => item.kind === "file"
-  );
-  if (fileItems.length > 0) {
-    e.preventDefault();
-    if (!dropZone.contains(e.target)) {
-      e.dataTransfer.dropEffect = "none";
-    }
-  }
+function handleImageUpload(file) {
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    preview.innerHTML = `<img src="${e.target.result}" alt="Preview" id="image-preview" />`;
+  };
+  reader.readAsDataURL(file);
+
+  uploadText.style.display = "none";
+  cloudIcon.style.display = "none";
+
+  changeBtn.style.display = "inline-block";
+  removeBtn.style.display = "inline-block";
+}
+
+changeBtn.addEventListener("click", () => {
+  fileInput.click();
 });
- 
-  Temporarily TODO ^ 
-  
-  */
+
+removeBtn.addEventListener("click", () => {
+  preview.innerHTML = "";
+  uploadText.style.display = "block";
+  cloudIcon.style.display = "block";
+  changeBtn.style.display = "none";
+  removeBtn.style.display = "none";
+
+  fileInput.value = "";
+});
 
 checkBtn.addEventListener("click", () => {
   const fullName = fullNameInput.value.trim();

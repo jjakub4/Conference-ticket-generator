@@ -22,6 +22,7 @@
   text-align: center;
   margin-top: 20px;
 }
+
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
@@ -44,17 +45,20 @@ body {
 .circle-pattern {
   position: absolute;
 }
+
 .pattern-lines {
   top: 0;
   left: 0;
   width: 100%;
 }
+
 .circle-pattern {
   left: -10%;
   top: -5%;
   width: 40%;
   z-index: -10;
 }
+
 .squiggly {
   position: absolute;
   width: 100%;
@@ -62,6 +66,7 @@ body {
   left: 0;
   z-index: -1;
 }
+
 header h1 {
   font-weight: 900;
   text-align: center;
@@ -111,13 +116,21 @@ header p {
   opacity: 90%;
 }
 
-.upload-image p {
+.upload-image #upload-text,
+.upload-info p {
   color: var(--Neutral500);
   font-weight: 400;
   text-align: left;
-  font-size: 11px;
-  margin-bottom: 30px;
   margin-left: 5px;
+}
+
+.upload-image p {
+  font-size: 14px;
+}
+
+.upload-info p {
+  font-size: 10px;
+  margin-bottom: 15px;
 }
 
 .upload-image h3 {
@@ -132,7 +145,7 @@ header p {
 }
 
 .upload-info img {
-  height: 16px;
+  height: 13px;
   width: auto;
 }
 
@@ -140,11 +153,6 @@ header p {
   display: none;
   cursor: pointer;
   width: 100%;
-}
-
-#remove-btn,
-#change-btn {
-  display: none;
 }
 
 form {
@@ -302,7 +310,7 @@ form input:focus,
 .ticket-top p {
   color: var(--Neutral300);
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .logo-mark {
@@ -315,6 +323,29 @@ form input:focus,
   font-weight: 700;
   font-size: 25px;
   transform: rotate(90deg);
+}
+
+.image-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#remove-btn,
+#change-btn {
+  background-color: #3d3661;
+  border-radius: 7px;
+  padding: 5px;
+  font-size: 10px;
+  border: none;
+  color: var(--Neutral500);
+  cursor: pointer;
+  display: none;
+}
+
+#remove-btn {
+  text-decoration: underline;
 }
 
 @media (min-width: 600px) {
@@ -337,7 +368,26 @@ form input:focus,
   }
 
   .circle-pattern {
-    width: 150%;
+    top: -5%;
+    left: -2%;
+    width: 15%;
+  }
+
+  .squiggly {
+    position: absolute;
+    width: 70%;
+    bottom: -27%;
+    z-index: -1;
+  }
+
+  form {
+    width: 60%;
+    max-width: 700px;
+  }
+
+  #generate-btn {
+    width: 70%;
+    margin-top: 20px;
   }
 }
 

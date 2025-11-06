@@ -25,6 +25,8 @@ let congratsGithub = document.getElementById("congrats-github");
 
 let ticketID = document.getElementById("ticket-id");
 
+const fileSizeInfo = document.getElementById("file-size-info");
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
@@ -55,6 +57,15 @@ fileInput.addEventListener("change", (event) => {
 });
 
 function handleImageUpload(file) {
+  var fileLimit = 500;
+  var fileSize = file.size;
+  var fileSizeKB = fileSize / 1024;
+  if (fileSizeKB > fileLimit) {
+    fileSizeInfo.innerText = "File too large, upload a file smaller than 500KB";
+    fileSizeInfo.style.color = "red";
+    return;
+  }
+
   const reader = new FileReader();
   reader.onload = function (e) {
     preview.innerHTML = `<img src="${e.target.result}" alt="Preview" id="image-preview" />`;

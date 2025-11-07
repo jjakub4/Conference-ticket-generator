@@ -256,6 +256,7 @@ form input:focus,
   padding: 15px;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .ticket-top-bottom-wrapper {
@@ -300,6 +301,7 @@ form input:focus,
   display: flex;
   flex-direction: column;
   margin-left: 15px;
+  gap: 5px;
 }
 
 .ticket-top h2 {
@@ -322,7 +324,10 @@ form input:focus,
   color: rgba(105, 105, 105, 0.848);
   font-weight: 700;
   font-size: 25px;
-  transform: rotate(90deg);
+  position: absolute;
+  right: -3%;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
 }
 
 .image-btns {
@@ -346,6 +351,36 @@ form input:focus,
 
 #remove-btn {
   text-decoration: underline;
+}
+
+.ticket-bottom {
+  display: flex;
+  margin-top: 25px;
+}
+
+.ticket-bottom-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ticket-bottom-column img {
+  height: 15px;
+}
+
+.github {
+  display: flex;
+}
+
+#profile-picture {
+  height: 45px;
+  max-width: 35px;
+  margin-right: 10px;
+}
+
+#congrats-github {
+  color: var(--Neutral500);
+  font-size: 13px;
 }
 
 @media (min-width: 600px) {

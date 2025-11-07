@@ -25,7 +25,11 @@ let congratsGithub = document.getElementById("congrats-github");
 
 let ticketID = document.getElementById("ticket-id");
 
+let profilePicture = document.getElementById("profile-picture");
+
 const fileSizeInfo = document.getElementById("file-size-info");
+
+let profilePictureSrc = "";
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -69,6 +73,7 @@ function handleImageUpload(file) {
   const reader = new FileReader();
   reader.onload = function (e) {
     preview.innerHTML = `<img src="${e.target.result}" alt="Preview" id="image-preview" />`;
+    profilePictureSrc = e.target.result;
   };
   reader.readAsDataURL(file);
 
@@ -127,5 +132,7 @@ checkBtn.addEventListener("click", () => {
     congratsGithub.innerText = githubUsername;
 
     ticketID.innerText = "#" + Math.floor(Math.random() * 99999);
+
+    profilePicture.src = profilePictureSrc;
   }
 });

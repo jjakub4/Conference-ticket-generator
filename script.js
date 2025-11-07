@@ -22,6 +22,7 @@ let congratsName = document.getElementById("congrats-name");
 let congratsEmail = document.getElementById("congrats-email");
 let congratsGithub = document.getElementById("congrats-github");
 let ticketName = document.getElementById("ticket-name");
+let uploadInfoImage = document.getElementById("upload-info-image");
 
 let ticketID = document.getElementById("ticket-id");
 
@@ -125,6 +126,11 @@ checkBtn.addEventListener("click", () => {
   if (profilePictureSrc === "") {
     fileSizeInfo.innerText = "Please upload a profile picture";
     fileSizeInfo.style.color = "red";
+    uploadInfoImage.classList.add("upload-info-error");
+  } else {
+    fileSizeInfo.innerText = "Upload your photo (JPG or PNG, max size: 500KB)";
+    fileSizeInfo.style.color = "var(--Neutral500)";
+    uploadInfoImage.classList.remove("upload-info-error");
   }
 
   if (

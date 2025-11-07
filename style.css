@@ -193,13 +193,28 @@ form input {
   cursor: pointer;
 }
 
-form input:focus,
 #drop-zone:hover {
   outline: none;
   background-color: hsla(246, 16%, 50%, 0.6);
   transition: ease-in-out 0.2s;
 }
 
+#drop-zone:focus {
+  border: var(--Neutral700);
+}
+/*
+#drop-zone:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1.5px solid var(--Neutral300);
+  border-radius: 10px;
+}
+*/
 .squiggly {
   position: absolute;
   width: 75%;

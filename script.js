@@ -1,4 +1,3 @@
-// Get elements
 const form = document.getElementById("coding-form");
 
 const fullNameInput = document.getElementById("name-input");
@@ -22,6 +21,7 @@ const removeBtn = document.getElementById("remove-btn");
 let congratsName = document.getElementById("congrats-name");
 let congratsEmail = document.getElementById("congrats-email");
 let congratsGithub = document.getElementById("congrats-github");
+let ticketName = document.getElementById("ticket-name");
 
 let ticketID = document.getElementById("ticket-id");
 
@@ -102,24 +102,36 @@ checkBtn.addEventListener("click", () => {
   const fullName = fullNameInput.value.trim();
   if (fullName === "" || fullName.length < 3) {
     fullNameErr.style.display = "flex";
+  } else {
+    fullNameErr.style.display = "none";
   }
 
   const email = emailInput.value.trim();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailRegex.test(email)) {
     emailErr.style.display = "flex";
+  } else {
+    emailErr.style.display = "none";
   }
 
   const githubUsername = githubInput.value.trim();
   const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
   if (!githubRegex.test(githubUsername)) {
     githubErr.style.display = "flex";
+  } else {
+    githubErr.style.display = "none";
+  }
+
+  if (profilePictureSrc === "") {
+    fileSizeInfo.innerText = "Please upload a profile picture";
+    fileSizeInfo.style.color = "red";
   }
 
   if (
     fullNameErr.style.display === "flex" ||
     emailErr.style.display === "flex" ||
-    githubErr.style.display === "flex"
+    githubErr.style.display === "flex" ||
+    profilePictureSrc === ""
   ) {
     return;
   } else {
@@ -130,6 +142,7 @@ checkBtn.addEventListener("click", () => {
     congratsName.innerText = fullName;
     congratsEmail.innerText = email;
     congratsGithub.innerText = githubUsername;
+    ticketName.innerText = fullName;
 
     ticketID.innerText = "#" + Math.floor(Math.random() * 99999);
 

@@ -264,11 +264,17 @@ form input {
 }
 
 .ticket-wrapper {
+  position: absolute;
   display: flex;
   background: url(./assets/images/pattern-ticket.svg);
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 80%;
+  height: 100%;
+  align-items: center;
+  top: 70%;
+  transform: translateY(-50%);
 }
 
 .ticket {
@@ -276,6 +282,8 @@ form input {
   display: flex;
   flex-direction: row;
   padding: 15px;
+  width: 100%;
+  left: 0;
 }
 
 .top-bottom-wrapper {
@@ -340,17 +348,16 @@ form input {
   height: 25px;
 }
 
-/*
 #ticket-id {
   color: rgba(105, 105, 105, 0.848);
   font-weight: 700;
   font-size: 25px;
   position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
+  transform: rotate(90deg);
+  right: 0;
+  top: 40%;
 }
-*/
+
 .image-btns {
   display: flex;
   justify-content: center;

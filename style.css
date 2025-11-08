@@ -63,18 +63,27 @@ body {
 }
 
 .circle-pattern {
-  left: -10%;
+  left: -5%;
   top: -5%;
-  width: 40%;
+  width: 30%;
   z-index: -10;
+}
+
+.circle-pattern-middle {
+  position: absolute;
+  width: 30%;
+  z-index: -10;
+  top: 50%;
+  transform: translateY(50%);
+  right: 0;
 }
 
 .squiggly {
   position: absolute;
-  width: 50%;
-  transform: scale(1.3);
-  transform-origin: left center;
-  top: 100%;
+  width: 100%;
+  transform: scale(1);
+  transform: translateY(30%);
+  bottom: 0;
   z-index: -1;
   left: 0;
 }
@@ -214,19 +223,6 @@ form input {
 #drop-zone:focus {
   border: var(--Neutral700);
 }
-/*
-#drop-zone:before {
-  content: " ";
-  position: absolute;
-  z-index: -1;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border: 1.5px solid var(--Neutral300);
-  border-radius: 10px;
-}
-*/
 
 #name-error,
 #github-error,
@@ -267,21 +263,24 @@ form input {
   align-items: center;
 }
 
-.ticket {
-  background-image: url("./assets/images/pattern-ticket.svg");
-  background-size: 100%;
-  background-position: center;
+.ticket-wrapper {
+  display: flex;
+  background: url(./assets/images/pattern-ticket.svg);
+  background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: row;
-  position: relative;
 }
 
-.ticket-top-bottom-wrapper {
+.ticket {
+  position: relative;
   display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.top-bottom-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .generated-ticket h1 {
@@ -337,20 +336,21 @@ form input {
 }
 
 .logo-mark {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
+/*
 #ticket-id {
   color: rgba(105, 105, 105, 0.848);
   font-weight: 700;
   font-size: 25px;
   position: absolute;
-  right: -3%;
+  right: 10%;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
 }
-
+*/
 .image-btns {
   display: flex;
   justify-content: center;
@@ -421,6 +421,7 @@ form input {
 
   .pattern-lines {
     width: 150%;
+    z-index: -1000;
   }
 
   .circle-pattern {

@@ -35,28 +35,34 @@ let profilePictureSrc = "";
 const fullNameDiv = fullNameInput.parentElement;
 const emailDiv = emailInput.parentElement;
 const githubDiv = githubInput.parentElement;
+const dropZoneDiv = dropZone.parentElement;
 
 function addFocus(event) {
-  const div = event.target.parentElement;
-  div.classList.add("input-focus");
+  const element = event.target.parentElement || event.target;
+  element.classList.add("input-focus");
   event.target.style.marginBottom = "0px";
 }
 
-function removeBorder(event) {
-  const div = event.target.parentElement;
-  div.classList.remove("input-focus");
-  event.target.style.marginBottom = "10px";
+function removeFocus(event) {
+  const element = event.target.parentElement || event.target;
+  element.classList.remove("input-focus");
+  event.target.style.marginBottom = "20px";
 }
 
 fullNameInput.addEventListener("focus", addFocus);
-fullNameInput.addEventListener("blur", removeBorder);
+fullNameInput.addEventListener("blur", removeFocus);
 
 emailInput.addEventListener("focus", addFocus);
-emailInput.addEventListener("blur", removeBorder);
+emailInput.addEventListener("blur", removeFocus);
 
 githubInput.addEventListener("focus", addFocus);
-githubInput.addEventListener("blur", removeBorder);
+githubInput.addEventListener("blur", removeFocus);
 
+dropZone.addEventListener("click", addFocus);
+dropZone.addEventListener("blur", removeFocus);
+
+checkBtn.addEventListener("click", addFocus);
+checkBtn.addEventListener("blur", removeFocus);
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
@@ -64,10 +70,12 @@ form.addEventListener("submit", function (event) {
 dropZone.addEventListener("dragover", (event) => {
   event.preventDefault();
   dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.8)";
+  addFocus(event);
 });
 
 dropZone.addEventListener("dragleave", () => {
   dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.6)";
+  removeFocus();
 });
 
 dropZone.addEventListener("drop", (event) => {
@@ -87,9 +95,9 @@ fileInput.addEventListener("change", (event) => {
 });
 
 function handleImageUpload(file) {
-  var fileLimit = 500;
-  var fileSize = file.size;
-  var fileSizeKB = fileSize / 1024;
+  const fileLimit = 500;
+  const fileSize = file.size;
+  const fileSizeKB = fileSize / 1024;
   if (fileSizeKB > fileLimit) {
     fileSizeInfo.innerText = "File too large, upload a file smaller than 500KB";
     fileSizeInfo.style.color = "red";
@@ -134,7 +142,7 @@ checkBtn.addEventListener("click", () => {
 
   const email = emailInput.value.trim();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  if (!emailRegex.test(email)) {
+  if (!emailRegex.test(email) || email.length > 254) {
     emailErr.style.display = "flex";
   } else {
     emailErr.style.display = "none";

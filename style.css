@@ -254,7 +254,6 @@ form input {
 }
 
 .ticket-wrapper {
-  position: absolute;
   display: flex;
   background: url(./assets/images/pattern-ticket.svg);
   background-size: contain;
@@ -263,8 +262,6 @@ form input {
   width: 80%;
   align-items: center;
   justify-content: center;
-  top: 70%;
-  transform: translateY(-50%);
   backdrop-filter: blur(10px);
 }
 
@@ -346,9 +343,9 @@ form input {
   color: rgba(105, 105, 105, 0.848);
   font-weight: 700;
   font-size: 25px;
-  position: absolute;
+  position: fixed;
   transform: rotate(90deg);
-  right: 0;
+  right: -5px;
   top: 40%;
 }
 
@@ -405,10 +402,14 @@ form input {
   font-size: 13px;
 }
 
+.squiggly-desktop {
+  display: none;
+}
+
 @media (min-width: 400px) {
   .ticket-bottom {
     display: flex;
-    margin-top: 55px;
+    margin-top: 35px;
   }
 
   .logo {
@@ -496,10 +497,18 @@ form input {
 
 @media (min-width: 600px) {
   body {
-    background-image: url(./assets/images/background-tablet.png);
-    background-size: cover;
+    background-image: url(./assets/images/background-mobile.png);
+    background-size: 100vw;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: "Inconsolata", monospace;
+    color: var(--Neutral0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    width: 100vw;
   }
 
   .pattern-lines,
@@ -520,10 +529,19 @@ form input {
     width: 15%;
   }
 
+  .squiggly-top {
+    height: 15%;
+  }
+
   .squiggly {
+    display: none;
+  }
+  .squiggly-desktop {
+    display: block;
     position: absolute;
-    width: 70%;
-    bottom: -27%;
+    width: 50%;
+    bottom: 0;
+    left: 0;
     z-index: -1;
   }
 
@@ -585,16 +603,23 @@ form input {
 
   .generated-ticket h1 {
     font-weight: 900;
-    text-align: center;
     font-size: 35px;
+    width: 550px;
+    text-align: center;
   }
   .generated-ticket-header p {
     color: var(--Neutral300);
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     padding-top: 25px;
-    padding-bottom: 35px;
     font-size: 25px;
+    width: 470px;
+  }
+  .generated-ticket-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
 
@@ -627,6 +652,10 @@ form input {
     justify-content: center;
   }
 
+  .ticket-wrapper {
+    margin-top: -80px;
+  }
+
   .generated-ticket h1 {
     font-weight: 900;
     font-size: 35px;
@@ -638,9 +667,12 @@ form input {
     font-weight: 300;
     text-align: center;
     padding-top: 25px;
-    padding-bottom: 35px;
     font-size: 25px;
     width: 470px;
+  }
+
+  .squiggly-top {
+    height: 25%;
   }
 
   .pattern-lines {
@@ -661,5 +693,13 @@ form input {
   }
   .squiggly {
     display: none;
+  }
+  .squiggly-desktop {
+    display: block;
+    position: absolute;
+    width: 50%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
   }
 }

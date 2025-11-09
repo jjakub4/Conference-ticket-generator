@@ -393,13 +393,69 @@ form input {
 
 #profile-picture {
   height: 45px;
-  max-width: 35px;
+  max-width: 45px;
   margin-right: 10px;
 }
 
 #congrats-github {
   color: var(--Neutral500);
   font-size: 13px;
+}
+
+@media (min-width: 400px) {
+  .ticket-bottom {
+    display: flex;
+    margin-top: 55px;
+  }
+}
+
+@media (min-width: 550px) {
+  .ticket-bottom {
+    display: flex;
+    margin-top: 60px;
+  }
+
+  #ticket-id {
+    color: rgba(105, 105, 105, 0.848);
+    font-weight: 500;
+    font-size: 30px;
+    position: absolute;
+    transform: rotate(90deg);
+    right: 0;
+    top: 40%;
+  }
+
+  .logo-mark {
+    width: 35px;
+    height: 35px;
+  }
+
+  .ticket-top h2 {
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  .ticket-top p {
+    color: var(--Neutral300);
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  #profile-picture {
+    height: 55px;
+    max-width: 55px;
+    margin-right: 10px;
+  }
+
+  #congrats-github {
+    color: var(--Neutral500);
+    font-size: 15px;
+  }
+
+  #ticket-name {
+    font-size: 25px;
+    font-weight: 500;
+  }
 }
 
 @media (min-width: 600px) {

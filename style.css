@@ -261,17 +261,19 @@ form input {
   background-position: center;
   background-repeat: no-repeat;
   width: 80%;
-  height: 100%;
   align-items: center;
+  justify-content: center;
   top: 70%;
   transform: translateY(-50%);
+  backdrop-filter: blur(10px);
 }
 
 .ticket {
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 22px;
   width: 100%;
   left: 0;
 }
@@ -280,6 +282,7 @@ form input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
 }
 
 .generated-ticket h1 {
@@ -407,12 +410,30 @@ form input {
     display: flex;
     margin-top: 55px;
   }
+
+  .logo {
+    padding: 20px;
+    padding-bottom: 40px;
+    width: 50%;
+    height: auto;
+    max-width: 200px;
+  }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 500px) {
   .ticket-bottom {
     display: flex;
     margin-top: 60px;
+  }
+
+  .ticket {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 22px;
+    width: 450px;
+    left: 0;
   }
 
   #ticket-id {
@@ -423,6 +444,21 @@ form input {
     transform: rotate(90deg);
     right: 0;
     top: 40%;
+  }
+
+  .ticket-wrapper {
+    position: absolute;
+    display: flex;
+    background: url(./assets/images/pattern-ticket.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 450px;
+    align-items: center;
+    justify-content: center;
+    top: 70%;
+    transform: translateY(-50%);
+    backdrop-filter: blur(10px);
   }
 
   .logo-mark {
@@ -500,23 +536,130 @@ form input {
     width: 70%;
     margin-top: 20px;
   }
+  .ticket-bottom {
+    display: flex;
+    margin-top: 60px;
+  }
+
+  #ticket-id {
+    color: rgba(105, 105, 105, 0.848);
+    font-weight: 500;
+    font-size: 30px;
+    position: absolute;
+    transform: rotate(90deg);
+    right: 0;
+    top: 40%;
+  }
+
+  .logo-mark {
+    width: 35px;
+    height: 35px;
+  }
+
+  .ticket-top h2 {
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  .ticket-top p {
+    color: var(--Neutral300);
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  #profile-picture {
+    height: 55px;
+    max-width: 55px;
+    margin-right: 10px;
+  }
+
+  #congrats-github {
+    color: var(--Neutral500);
+    font-size: 15px;
+  }
+
+  #ticket-name {
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .generated-ticket h1 {
+    font-weight: 900;
+    text-align: center;
+    font-size: 35px;
+  }
+  .generated-ticket-header p {
+    color: var(--Neutral300);
+    font-weight: 400;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 35px;
+    font-size: 25px;
+  }
 }
 
 @media (min-width: 1280px) {
   body {
-    background-image: url(./assets/images/background-desktop.png);
-    background-size: cover;
+    background-image: url(./assets/images/background-desktop.png) !important;
+    background-size: 100vw;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: "Inconsolata", monospace;
+    color: var(--Neutral0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .generated-ticket-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .generated-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .generated-ticket h1 {
+    font-weight: 900;
+    font-size: 35px;
+    width: 550px;
+    text-align: center;
+  }
+  .generated-ticket-header p {
+    color: var(--Neutral300);
+    font-weight: 300;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 35px;
+    font-size: 25px;
+    width: 470px;
   }
 
   .pattern-lines {
-    width: 200%;
-    left: -50%;
+    width: 30%;
+    transform: scale(5);
+    top: 0;
   }
 
   .circle-pattern {
-    width: 200%;
-    left: -40%;
+    width: 20%;
+    top: -10%;
+    left: 5%;
+  }
+  .circle-pattern-middle {
+    top: 0;
+    right: 0;
+    height: 20%;
+  }
+  .squiggly {
+    display: none;
   }
 }

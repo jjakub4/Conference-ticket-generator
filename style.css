@@ -550,6 +550,7 @@ form input:hover {
   .squiggly {
     display: none;
   }
+
   .squiggly-desktop {
     display: block;
     position: absolute;
@@ -567,6 +568,7 @@ form input:hover {
   #generate-btn {
     width: 70%;
   }
+
   .ticket-bottom {
     display: flex;
     margin-top: 60px;
@@ -620,6 +622,7 @@ form input:hover {
     width: 550px;
     text-align: center;
   }
+
   .generated-ticket-header p {
     color: var(--Neutral300);
     font-weight: 300;
@@ -628,14 +631,22 @@ form input:hover {
     font-size: 25px;
     width: 470px;
   }
+
   .generated-ticket-header {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
+
   #generate-btn {
     width: 100%;
+  }
+  .circle-pattern-middle {
+    top: 50%;
+    right: 15%;
+    height: 30%;
+    transform: translateY(-50%);
   }
 }
 
@@ -682,6 +693,7 @@ form input:hover {
     width: 550px;
     text-align: center;
   }
+
   .generated-ticket-header p {
     color: var(--Neutral300);
     font-weight: 300;
@@ -695,6 +707,13 @@ form input:hover {
     height: 25%;
   }
 
+  .circle-pattern-middle {
+    top: 50%;
+    right: 15%;
+    height: 30%;
+    transform: translateY(-50%);
+  }
+
   .pattern-lines {
     width: 30%;
     transform: scale(5);
@@ -706,14 +725,11 @@ form input:hover {
     top: -10%;
     left: 5%;
   }
-  .circle-pattern-middle {
-    top: 0;
-    right: 0;
-    height: 20%;
-  }
+
   .squiggly {
     display: none;
   }
+
   .squiggly-desktop {
     display: block;
     position: absolute;

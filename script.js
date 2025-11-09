@@ -10,7 +10,7 @@ const githubErr = document.getElementById("github-error-span");
 
 const checkBtn = document.getElementById("generate-btn");
 
-const dropZone = document.getElementById("drop-zone");
+const dropZone = document.getElementById("drop-zone"); // No longer handling focus here
 const fileInput = document.getElementById("file-input");
 const preview = document.getElementById("preview");
 const uploadText = document.getElementById("upload-text");
@@ -35,7 +35,6 @@ let profilePictureSrc = "";
 const fullNameDiv = fullNameInput.parentElement;
 const emailDiv = emailInput.parentElement;
 const githubDiv = githubInput.parentElement;
-const dropZoneDiv = dropZone.parentElement;
 
 function addFocus(event) {
   const element = event.target.parentElement || event.target;
@@ -58,24 +57,21 @@ emailInput.addEventListener("blur", removeFocus);
 githubInput.addEventListener("focus", addFocus);
 githubInput.addEventListener("blur", removeFocus);
 
-dropZone.addEventListener("click", addFocus);
-dropZone.addEventListener("blur", removeFocus);
-
 checkBtn.addEventListener("click", addFocus);
 checkBtn.addEventListener("blur", removeFocus);
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
 
+// Drop zone behavior without focus state
 dropZone.addEventListener("dragover", (event) => {
   event.preventDefault();
   dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.8)";
-  addFocus(event);
 });
 
 dropZone.addEventListener("dragleave", () => {
   dropZone.style.backgroundColor = "hsla(245, 19%, 35%, 0.6)";
-  removeFocus();
 });
 
 dropZone.addEventListener("drop", (event) => {
@@ -134,7 +130,8 @@ removeBtn.addEventListener("click", () => {
 
 checkBtn.addEventListener("click", () => {
   const fullName = fullNameInput.value.trim();
-  if (fullName === "" || fullName.length < 3) {
+
+  if (fullName === "" || fullName.length < 3 || /\d/.test(fullName)) {
     fullNameErr.style.display = "flex";
   } else {
     fullNameErr.style.display = "none";

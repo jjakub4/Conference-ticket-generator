@@ -105,6 +105,7 @@ header p {
   justify-content: center;
   flex-direction: column;
   height: 120px;
+  width: 100%;
   padding: 1.5em;
   border: 1px dashed var(--Neutral500);
   border-radius: 10px;
@@ -180,12 +181,31 @@ form input {
   color: hsla(252, 6%, 83%, 0.6);
   cursor: pointer;
   background-color: hsla(245, 19%, 35%, 0.6);
-  margin-bottom: 10px;
   backdrop-filter: blur(2px);
   border: 1px solid var(--Neutral500);
   padding: 1em;
   padding-right: 10em;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form input:hover {
+  background-color: hsl(246, 14%, 38%);
+}
+
+.input-focus {
+  width: 100%;
+  border: 2px solid var(--Neutral500);
+  padding: 3px;
+  border-radius: 13px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 #generate-btn {
@@ -208,10 +228,6 @@ form input {
   outline: none;
   background-color: hsla(246, 16%, 50%, 0.6);
   transition: ease-in-out 0.2s;
-}
-
-#drop-zone:focus {
-  border: var(--Neutral700);
 }
 
 #name-error,
@@ -539,8 +555,8 @@ form input {
   .squiggly-desktop {
     display: block;
     position: absolute;
-    width: 50%;
-    bottom: 0;
+    width: 70%;
+    bottom: -10%;
     left: 0;
     z-index: -1;
   }
@@ -621,6 +637,9 @@ form input {
     align-items: center;
     flex-direction: column;
   }
+  #generate-btn {
+    width: 100%;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -647,13 +666,17 @@ form input {
   }
 
   .generated-ticket {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
   }
 
   .ticket-wrapper {
     margin-top: -80px;
+  }
+
+  #generate-btn {
+    width: 100%;
   }
 
   .generated-ticket h1 {

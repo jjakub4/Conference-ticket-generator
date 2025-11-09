@@ -51,19 +51,22 @@
     <form id="coding-form">
       <div class="upload-image">
   <h3>Upload Avatar</h3>
-  <div class="drop-zone-border">
+  
 
-    <label id="drop-zone">
-      <img src="./assets/images/icon-upload.svg" alt="cloud icon" id="cloud-icon" />
-      <input type="file" id="file-input" multiple accept="image/*" />
-      <div id="preview"></div> 
-      <div class="image-btns">
-        <button id="remove-btn">Remove Image</button>
-        <button id="change-btn">Change Image</button>
-      </div>
-      <p id="upload-text"> Drag and drop or click to upload </p>
-    </label>
-  </div>
+    <div class="drop-zone-border">
+      
+      <label id="drop-zone">
+        <img src="./assets/images/icon-upload.svg" alt="cloud icon" id="cloud-icon" />
+        <input type="file" id="file-input" multiple accept="image/*" />
+        <div id="preview"></div> 
+        <div class="image-btns">
+          <button id="remove-btn">Remove Image</button>
+          <button id="change-btn">Change Image</button>
+        </div>
+        <p id="upload-text"> Drag and drop or click to upload </p>
+      </label>
+    </div>
+  
   <span class="upload-info">
     <img src="./assets/images/icon-info.svg" id="upload-info-image"/>
     <p id="file-size-info">Upload your photo (JPG or PNG, max size: 500KB).</p>
@@ -72,21 +75,30 @@
 
 
       <h3>Full Name</h3>
-      <input type="text" id="name-input" />
+      <div class="" id="input-focus">
+
+        <input type="text" id="name-input" />
+      </div>
       <span id="name-error-span">
         <img src="./assets/images/icon-info.svg" />
         <p id="name-error">Please enter your name</p>
       </span>
 
       <h3>Email Address</h3>
-      <input type="email" id="email-input" placeholder="example@gmail.com" />
+      <div class="" id="input-focus">
+
+        <input type="email" id="email-input" placeholder="example@gmail.com" />
+      </div>
       <span id="email-error-span">
         <img src="./assets/images/icon-info.svg" />
         <p id="email-error">Please enter a valid email address</p>
       </span>
 
       <h3>GitHub Username</h3>
-      <input type="text" id="github-input" placeholder="@yourusername" />
+      <div class="" id="input-focus">
+
+        <input type="text" id="github-input" placeholder="@yourusername" />
+      </div>
       <span id="github-error-span">
         <img src="./assets/images/icon-info.svg" />
         <p id="github-error">Please enter your valid github username</p>

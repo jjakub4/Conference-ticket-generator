@@ -32,6 +32,31 @@ const fileSizeInfo = document.getElementById("file-size-info");
 
 let profilePictureSrc = "";
 
+const fullNameDiv = fullNameInput.parentElement;
+const emailDiv = emailInput.parentElement;
+const githubDiv = githubInput.parentElement;
+
+function addFocus(event) {
+  const div = event.target.parentElement;
+  div.classList.add("input-focus");
+  event.target.style.marginBottom = "0px";
+}
+
+function removeBorder(event) {
+  const div = event.target.parentElement;
+  div.classList.remove("input-focus");
+  event.target.style.marginBottom = "10px";
+}
+
+fullNameInput.addEventListener("focus", addFocus);
+fullNameInput.addEventListener("blur", removeBorder);
+
+emailInput.addEventListener("focus", addFocus);
+emailInput.addEventListener("blur", removeBorder);
+
+githubInput.addEventListener("focus", addFocus);
+githubInput.addEventListener("blur", removeBorder);
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
